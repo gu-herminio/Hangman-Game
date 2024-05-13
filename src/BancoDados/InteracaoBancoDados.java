@@ -1,13 +1,15 @@
 
 package BancoDados;
 
-import BancoDados.ConexaoBancoDados;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jogoforcaa3.Palavras;
+import java.sql.ResultSet;
+import java.util.Random;
+
 
 
 public class InteracaoBancoDados {
@@ -94,11 +96,103 @@ public class InteracaoBancoDados {
             
             conexaoSQLite.desconectar();
                     
-        
-    
-    
+          
         }
     }
-}
     
+  public void consultaRegistrosTabela(){
+    ConexaoBancoDados conexaoSQLite = new ConexaoBancoDados();
+    
+    ResultSet resultSet = null;
+    Statement statement = null;
+    
+    conexaoSQLite.conectar();
+    
+    String query = "SELECT * FROM tbl_palavras;";
+    
+    statement = conexaoSQLite.criarStatement();
+    
+    try {
+        resultSet = statement.executeQuery(query);
+            System.out.println("LISTA DE PALAVRAS");
+
+        while (resultSet.next()) {
+            System.out.println(resultSet.getInt("id"));
+            System.out.println(resultSet.getString("palavra"));
+            System.out.println("------------------");
+        }
+        
+    } catch (SQLException e) {
+        System.out.println("Erro");
+    } finally {
+        try {
+            if(resultSet != null)
+                resultSet.close();
+            if(statement != null)
+                statement.close();
+            conexaoSQLite.desconectar();
+        } catch (SQLException ex) {
+            System.out.println("Erro de fechamento.");
+        }
+    }
+  }
+  
+public String consultaRegistroTabelaID(){
+    ConexaoBancoDados conexaoSQLite = new ConexaoBancoDados();
+    conexaoSQLite.conectar();
+    
+    ResultSet resultSet = null;
+    PreparedStatement preparedStatement = null;
+    String palavra ="";
+    
+    String sql = "SELECT * " +  
+                 "FROM tbl_palavras " + 
+                 "WHERE id = ?";
+  
+    try {
+          
+        Random random = new Random();
+        int idPalavra = random.nextInt(10);
+        
+        preparedStatement = conexaoSQLite.criarPreparedStatement(sql);
+        preparedStatement.setInt(1, idPalavra);
+        
+        resultSet = preparedStatement.executeQuery(); // Atribuir o resultado da consulta ao resultSet
+        palavra = resultSet.getString("palavra");
+
+        /*while (resultSet.next()) {
+            System.out.println("Palavra selecionada:");
+            System.out.println("ID = "+resultSet.getInt("id"));
+            System.out.println("Palavra = "+resultSet.getString("palavra"));
+            
+        }
+        */
+        
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }finally{
+        try {
+            if(resultSet != null)
+                resultSet.close();
+            if(preparedStatement != null)
+                preparedStatement.close();
+            conexaoSQLite.desconectar();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    System.out.println(palavra);
+    return palavra;
+}
+
+}
+
+
+
+
+  
+  
+
+
 

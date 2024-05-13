@@ -13,18 +13,10 @@ public class JogoForcaA3 {
     public static void main(String[] args) {
         ConexaoBancoDados conexaoSQLite = new ConexaoBancoDados();
         InteracaoBancoDados interacaoBanco = new InteracaoBancoDados(conexaoSQLite);
-        interacaoBanco.criarTabelaPalavras();
-        interacaoBanco.inserirRegistrosTabela();
-        
+        interacaoBanco.consultaRegistroTabelaID();
 
-       
-                
-                
-                
-
-        
-        //LogicaJogo jogo = new LogicaJogo("arroz");
-        //jogo.executaJogo();
+        LogicaJogo jogo = new LogicaJogo(interacaoBanco.consultaRegistroTabelaID());
+        jogo.executaJogo();
         
     
 }
