@@ -30,6 +30,7 @@ public class LogicaJogo {
                 //System.out.printf("Rodada %d. Ate agora advinhada: %s. Qual a sua proxima letra?%n",tentativas,palavraAdivinhada);
                 System.out.println("Rodada "+ tentativas+" Ate agora adivinhado: "+palavraAdivinhada);
                 
+                
                 char letraTentada = new Scanner(System.in).next().charAt(0);
                 if (letrasUsadas.indexOf(letraTentada) >= 0){
                     //System.out.printf("Você ja tentou a letra %s.%n",letraTentada);

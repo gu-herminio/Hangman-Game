@@ -152,7 +152,7 @@ public String consultaRegistroTabelaID(){
     try {
           
         Random random = new Random();
-        int idPalavra = random.nextInt(10);
+        int idPalavra = random.nextInt(10) + 1;
         
         preparedStatement = conexaoSQLite.criarPreparedStatement(sql);
         preparedStatement.setInt(1, idPalavra);
