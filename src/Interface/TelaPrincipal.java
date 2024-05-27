@@ -6,7 +6,14 @@ package Interface;
 
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.io.IOException;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
+import jogoforcaa3.AudioManager;
 
 /**
  *
@@ -20,12 +27,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
         initComponents();
         setIcon();
-
+        tocarAudio();
         //meujFrame.setLocationRelativeTo(null);
 
     }
    
     
+    private void tocarAudio(){
+        AudioManager.getInstance().tocarAudio("principal.wav");
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -133,7 +144,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -178,6 +190,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setIcon() {
-      setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/logo hangman.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/logo hangman.png")));
+
     }
 }

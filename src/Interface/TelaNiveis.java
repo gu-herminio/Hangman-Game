@@ -13,6 +13,8 @@ import javax.swing.ImageIcon;
  * @author Guu
  */
 public class TelaNiveis extends javax.swing.JFrame {
+    
+    public static int nivel;
 
     /**
      * Creates new form TelaPrincipal
@@ -161,15 +163,17 @@ public class TelaNiveis extends javax.swing.JFrame {
 
     private void botaoFacilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoFacilActionPerformed
         // TODO add your handling code here:
-        TelaJogoFacil telaJogoFacil = new TelaJogoFacil();
-        telaJogoFacil.setVisible(true);
+        nivel = 0;
+        TelaJogo telaJogo= new TelaJogo();
+        telaJogo.setVisible(true);
         dispose();
     }//GEN-LAST:event_botaoFacilActionPerformed
 
     private void botaoDificilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDificilActionPerformed
         // TODO add your handling code here:
-        TelaJogoDificil telaJogoDificil = new TelaJogoDificil();
-        telaJogoDificil.setVisible(true);
+        nivel = 2;
+        TelaJogo telaJogo = new TelaJogo();
+        telaJogo.setVisible(true);
         dispose();
     }//GEN-LAST:event_botaoDificilActionPerformed
 
