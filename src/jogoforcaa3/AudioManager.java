@@ -1,9 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package jogoforcaa3;
 
+//Importação de bibliotecas para funcionamento dos métodos.
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -12,6 +10,8 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
+
+// Classe para execução dos áudios de trilha sonora do game e feedback de final de jogo.
 public class AudioManager {
     private static AudioManager instance;
     private Clip clip;
@@ -25,6 +25,8 @@ public class AudioManager {
         return instance;
     }
 
+    
+    // Método para execução do áudio de trilha sonora do jogo.
     public void tocarAudio(String filename) {
         try {
             if (clip != null && clip.isRunning()) {
@@ -48,6 +50,8 @@ public class AudioManager {
         }
     }
 
+    
+    //Método para pausar áudio da música principal.
     public void pararAudio() {
         if (clip != null && clip.isRunning()) {
             clip.stop();

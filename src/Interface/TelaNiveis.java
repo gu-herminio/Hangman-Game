@@ -1,24 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Interface;
 
-import java.awt.Image;
+//Importação de bibliotecas principais para execução da tela de seleção de níveis
 import java.awt.Toolkit;
-import javax.swing.ImageIcon;
 
-/**
- *
- * @author Guu
- */
+
+//Inicialização da tela de seleção de nível do jogo.
 public class TelaNiveis extends javax.swing.JFrame {
     
     public static int nivel;
 
-    /**
-     * Creates new form TelaPrincipal
-     */
     public TelaNiveis() {
         initComponents();
         setIcon();
@@ -155,12 +146,15 @@ public class TelaNiveis extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    // Botão "Voltar" para iniciar classe TelaPrincipal ao ser pressionado e desabilitar classe atual TelaNiveis.
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
         TelaPrincipal telaPrincipal = new TelaPrincipal();
         telaPrincipal.setVisible(true);
         dispose();
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
+    // Botão que inicializa a "TelaJogo" no nível fácil de execução e desabilita tela atual.
     private void botaoFacilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoFacilActionPerformed
         // TODO add your handling code here:
         nivel = 0;
@@ -168,7 +162,8 @@ public class TelaNiveis extends javax.swing.JFrame {
         telaJogo.setVisible(true);
         dispose();
     }//GEN-LAST:event_botaoFacilActionPerformed
-
+    
+// Botão que inicializa a "TelaJogo" no nível difícil de execução e desabilita tela atual.
     private void botaoDificilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDificilActionPerformed
         // TODO add your handling code here:
         nivel = 2;
@@ -177,9 +172,7 @@ public class TelaNiveis extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_botaoDificilActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -225,6 +218,7 @@ public class TelaNiveis extends javax.swing.JFrame {
     private javax.swing.JLabel logo2;
     // End of variables declaration//GEN-END:variables
 
+        // Método para inserção de logo no JFrame do jogo.
     private void setIcon() {
       setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/logo hangman.png")));
     }

@@ -1,8 +1,8 @@
 package BancoDados;
 
+//Importação de bibliotecas principais para execução da tela de execução do jogo
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
@@ -10,11 +10,7 @@ import java.sql.PreparedStatement;
 public class ConexaoBancoDados {
     private Connection conexao = null;
     
-    /**
-     * Conectar o banco de dados(Também realiza a criação do banco de dados caso não exista.
-     * @return 
-     */
-    
+ 
     public boolean conectar(){
 
         try {
@@ -52,11 +48,7 @@ public class ConexaoBancoDados {
     
     }
     
-    
-    /**
-     * Criar os statements para permitir queries SQL serem executadas.
-     * @return 
-     */
+  
     
     public Statement criarStatement(){
         try {
